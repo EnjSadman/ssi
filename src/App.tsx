@@ -12,6 +12,7 @@ function App() {
       
         <Routes>
           <Route path='/' element={<div />}/>
+          <Route path='/list' element={<div />}/>
           <Route path='/login' element={<LoginPage />}/>
           <Route path='/add' element={<AuthCheck element={<div />} />}/>
           <Route path='/edit' element={<AuthCheck element={<div />} />}/>

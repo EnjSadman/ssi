@@ -1,4 +1,5 @@
-import { Checkbox, Container, FormControlLabel, FormGroup, TextField, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
+import LoginForm from "../components/organisms/LoginForm";
 
 export default function LoginPage() {
   return(
@@ -6,16 +7,15 @@ export default function LoginPage() {
       maxWidth="sm"
     >
       <Typography
-        variant="h1"
+        variant="h3"
         align="center"  
       >
         LOGIN
       </Typography>
-      <FormGroup>    
-        <TextField label="Login" variant="outlined" />
-        <TextField label="Password" variant="outlined" />
-        <FormControlLabel control={<Checkbox />} label="Keep me logged in"/>
-      </FormGroup>
+      <Typography align="center">
+        Only validation right now is by length. Username or password should be longer than 3 symbols. 
+      </Typography>
+    <LoginForm />
     </Container>
   )
 }

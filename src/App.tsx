@@ -1,20 +1,22 @@
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
 import Header from './components/organisms/Header';
-import PublicPage from './pages/Public';
 import LoginPage from './pages/LoginPage';
-import AuthCheck from './lib/AuthCheck';
-import Private from './pages/Private';
+import AuthCheck from './lib/Auth/AuthCheck';
+
 
 function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path='/' element={<PublicPage />}/>
-        <Route path='/login' element={<LoginPage />}/>
-        <Route path='/private' element={<AuthCheck element={<Private />} />}/>
-      </Routes>
+      
+        <Routes>
+          <Route path='/' element={<div />}/>
+          <Route path='/login' element={<LoginPage />}/>
+          <Route path='/add' element={<AuthCheck element={<div />} />}/>
+          <Route path='/edit' element={<AuthCheck element={<div />} />}/>
+        </Routes>
+
     </>
   );
 }

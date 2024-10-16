@@ -10,8 +10,7 @@ const HeaderContainerStyle = {
   backgroundColor: "darkblue",
   padding: "20px 0px"
 }
-
-export default function Header() {
+const Header = () => {
   const { isAuthenticated, username } = useAppSelector((state : RootState) => state.auth);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -51,3 +50,5 @@ export default function Header() {
     </Box>
   )
 }
+
+export default Header;

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../store/slices/authSlicle";
 
-export default function LoginForm() {
+const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -80,3 +80,5 @@ export default function LoginForm() {
   </FormGroup>
   )
 }
+
+export default LoginForm;

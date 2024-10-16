@@ -1,7 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import LoginForm from "../components/organisms/LoginForm";
 
-export default function LoginPage() {
+const LoginPage = () => {
   return(
     <Container 
       maxWidth="sm"
@@ -19,3 +19,5 @@ export default function LoginPage() {
     </Container>
   )
 }
+
+export default LoginPage;

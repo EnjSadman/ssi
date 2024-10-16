@@ -1,21 +1,10 @@
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
+import PublicText from "../components/molecules/PublicText";
 
 const HomePage = () => {
   return (
     <Container>
-      <Typography
-        align="center"
-        variant="h1"
-      >
-          Public Page
-      </Typography>
-      <Typography
-        variant="body1"
-        align="center"
-      >
-          This is public homepage.
-          This can be viewed without login
-      </Typography>
+      <PublicText />
     </Container>
   )
 }

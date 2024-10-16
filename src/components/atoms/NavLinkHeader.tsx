@@ -6,7 +6,7 @@ interface NavLinkProps {
   to: string
 }
 
-export default function NavLinkHeader({text, to} : NavLinkProps) {
+const NavLinkHeader = ({text, to} : NavLinkProps) => {
   return (
     <MUILink
       component={RouterLink}
@@ -19,3 +19,5 @@ export default function NavLinkHeader({text, to} : NavLinkProps) {
     </MUILink> 
   )
 }
+
+export default NavLinkHeader;

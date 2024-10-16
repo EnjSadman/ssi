@@ -4,7 +4,7 @@ interface BoxProps {
   children: React.ReactNode;
 };
 
-const BoxFlexAllCentered = (props : BoxProps) => {
+const BoxFlexBetweenCentered = (props : BoxProps) => {
   return (
     <Box
       display={"flex"}
@@ -16,4 +16,4 @@ const BoxFlexAllCentered = (props : BoxProps) => {
   )
 }
 
-export default BoxFlexAllCentered;
+export default BoxFlexBetweenCentered;

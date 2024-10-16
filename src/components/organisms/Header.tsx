@@ -1,10 +1,10 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import BoxFlexAllCentered from "../templates/BoxFlexAllCentered";
-import NavLinkHeader from "../atoms/NavLinkHeader";
-import { useDispatch, useSelector } from "react-redux";
+import NavLinkHeader from "../atoms/NavLinkHeader"; 
 import { RootState } from "../../store/store";
 import { logout } from "../../store/slices/authSlicle";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
 
 const HeaderContainerStyle = {
   backgroundColor: "darkblue",
@@ -12,8 +12,8 @@ const HeaderContainerStyle = {
 }
 
 export default function Header() {
-  const { isAuthenticated, username } = useSelector((state : RootState) => state.auth);
-  const dispatch = useDispatch();
+  const { isAuthenticated, username } = useAppSelector((state : RootState) => state.auth);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   return (
     <Box
@@ -26,7 +26,7 @@ export default function Header() {
             display={"flex"}
             gap={"16px"}
           >
-            <NavLinkHeader text={"public"} to={"/"} />
+            <NavLinkHeader text={"homepage"} to={"/"} />
             <NavLinkHeader text={"add"} to={"/add"} />
             <NavLinkHeader text={"list"} to={"/list"} />
           </Box>

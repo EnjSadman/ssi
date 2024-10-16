@@ -9,7 +9,10 @@ const HomePage = () => {
       >
           Public Page
       </Typography>
-      <Typography variant="body1">
+      <Typography
+        variant="body1"
+        align="center"
+      >
           This is public homepage.
           This can be viewed without login
       </Typography>

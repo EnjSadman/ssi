@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, FormGroup, TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { editItem } from "../../store/slices/itemsSlice";
+import FormGroupItem from "../templates/FormGroupItem";
 
 const EditForm = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ const EditForm = () => {
   }, [item]);
 
   return (
-    <FormGroup>
+    <FormGroupItem>
       {(formData !== null) 
         ? (
           Object.keys(formData).map((key, index) => (
@@ -60,14 +61,15 @@ const EditForm = () => {
         Add more properties
       </Button>
       <Button
-        variant="outlined"
+        variant="contained"
+        color="success"
         onClick={() => {
           handleSave();
         }}
       >
         Save Changes
       </Button>
-    </FormGroup>
+    </FormGroupItem>
   )
 }
 

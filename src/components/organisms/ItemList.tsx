@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import { useAppSelector } from '../../store/hooks';
 import { ITEM } from '../../utils/types';
 
@@ -11,12 +11,22 @@ const ItemsList = () => {
 
 
   return (
-    <div>
-      <h1>Items List</h1>
+    <Container>
+      <Typography
+        variant='h2'
+        align='center'
+      >
+        Items List
+      </Typography>
+      <Typography
+        align='center'
+      >
+        This page also public. But you can&apos;t see button edit and add
+      </Typography>
       <ul>
         {items.map((item : ITEM)=> (
           <li key={item.id}>
-            {item.properties} 
+            {item.properties.join(", ")} 
             <Button
               onClick={() => {
                 navigate(`/edit/${item.id}`)
@@ -27,20 +37,22 @@ const ItemsList = () => {
           </li>
         ))}
       </ul>
-      {
-        (isAuthenticated) 
-        ? (
-          <Button
-            onClick={() => {
-            navigate("/add")
-            }}
-          >
-            Add Item
-          </Button>
-        )
-        : ""
-      }
-    </div>
+      <Box>
+        {
+          (isAuthenticated) 
+          ? (
+            <Button
+              onClick={() => {
+              navigate("/add")
+              }}
+            >
+              Add Item
+            </Button>
+          )
+          : ""
+        }
+      </Box>
+    </Container>
   );
 };
 

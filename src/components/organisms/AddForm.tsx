@@ -1,9 +1,10 @@
-import { Button, FormControl, TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { useAppDispatch } from "../../store/hooks";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 import { addItem } from "../../store/slices/itemsSlice";
+import FormGroupItem from "../templates/FormGroupItem";
 
 const AddForm = () => {
   const dispatch = useAppDispatch();
@@ -19,7 +20,7 @@ const AddForm = () => {
   const [formData, setFormData] = useState<string[]>([""]);
 
   return (
-    <FormControl>
+    <FormGroupItem>
       {
         formData.map((el, index)=> (
           <React.Fragment key={index}>
@@ -35,6 +36,7 @@ const AddForm = () => {
         ))
       }
       <Button
+        variant="contained"
         onClick={() => {
           handleChange("", formData.length);
         }}
@@ -42,6 +44,8 @@ const AddForm = () => {
         Add more properties
       </Button>
       <Button
+      variant="contained"
+      color="success"
       onClick={() => {
         dispatch(addItem({id, properties: [...formData]}))
         navigate("/")
@@ -49,7 +53,7 @@ const AddForm = () => {
       >
         Save
       </Button>
-    </FormControl>
+    </FormGroupItem>
   )
 }
 

@@ -12,10 +12,10 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [passwordValid, setPasswordValid] = useState(true);
 
-  function validateFields() {
+  function validateFields(name: string, pass: string) {
   
-    const isUsernameValid = username.length >= 3;
-    const isPasswordValid = password.length >= 3;
+    const isUsernameValid = name.length >= 3;
+    const isPasswordValid = pass.length >= 3;
 
     setUsernameValid(isUsernameValid);
     setPasswordValid(isPasswordValid);
@@ -28,7 +28,7 @@ export default function LoginForm() {
 
   function handleKey(event : KeyboardEvent) {
     if (event.key === "Enter") {
-      validateFields();
+      validateFields(username, password);
     }
   }
 
@@ -41,7 +41,7 @@ export default function LoginForm() {
     return(() => {
       window.removeEventListener("keypress", handleKey);
     });
-  }, []);
+  }, [username, password]);
 
   return(
   <FormGroup>    
@@ -73,7 +73,7 @@ export default function LoginForm() {
       }}
     />
     <Button
-      onClick={() => validateFields()}
+      onClick={() => validateFields(username, password)}
     >
       Login
     </Button>

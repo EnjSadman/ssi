@@ -6,6 +6,7 @@ import AuthCheck from './lib/Auth/AuthCheck';
 import AddPage from './pages/AddPage';
 import EditPage from './pages/EditPage';
 import ListPage from './pages/ListPage';
+import HomePage from './pages/HomePage';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <>
       <Header />    
       <Routes>
-        <Route path='/' element={<div />}/>
+        <Route path='/' element={<HomePage />}/>
         <Route path='/list' element={<ListPage />}/>
         <Route path='/login' element={<LoginPage />}/>
         <Route element={<AuthCheck />}>

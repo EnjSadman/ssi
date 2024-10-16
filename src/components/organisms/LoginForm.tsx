@@ -1,9 +1,12 @@
 import { FormGroup, TextField, Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useAuth } from "../../lib/Auth/AuthContext";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../store/slices/authSlicle";
 
 export default function LoginForm() {
-  const {login} = useAuth();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [usernameValid, setUsernameValid] = useState(true);
   const [password, setPassword] = useState("");
@@ -16,7 +19,7 @@ export default function LoginForm() {
   }
 
   function handleLogin() {
-    login();
+    dispatch(login())
   }
 
   function validateFields() {
@@ -29,6 +32,7 @@ export default function LoginForm() {
 
     if (isUsernameValid && isPasswordValid) {
       handleLogin();
+      navigate("/");
     }
   }
 

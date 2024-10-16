@@ -1,8 +1,10 @@
 import { Box, Button, Container } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../lib/Auth/AuthContext";
 import BoxFlexAllCentered from "../templates/BoxFlexAllCentered";
 import NavLinkHeader from "../atoms/NavLinkHeader";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { logout } from "../../store/slices/authSlicle";
 
 const HeaderContainerStyle = {
   backgroundColor: "darkblue",
@@ -10,8 +12,9 @@ const HeaderContainerStyle = {
 }
 
 export default function Header() {
+  const { isAuthenticated } = useSelector((state : RootState) => state.auth);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {logout, isAuthenticated} = useAuth();
   return (
     <Box
       sx={HeaderContainerStyle}
@@ -26,13 +29,13 @@ export default function Header() {
           >
             <NavLinkHeader text={"public"} to={"/"} />
             <NavLinkHeader text={"add"} to={"/add"} />
-            <NavLinkHeader text={"edit"} to={"/edit"} />
+            <NavLinkHeader text={"list"} to={"/list"} />
           </Box>
           <Button
           variant="contained"
           onClick={() => {
             if(isAuthenticated) {
-              logout();
+              dispatch(logout())
               navigate("/");
             } else {
               navigate("/login")

@@ -1,17 +1,13 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
+import { useAppSelector } from '../../store/hooks';
 
-interface PrivateRouteProps {
-  element: JSX.Element;
-}
-
-export default function PrivateRoute({ element } : PrivateRouteProps) {
-  const isAuthenticated = sessionStorage.getItem('auth');
+export default function AuthCheck() {
+  const isAuthenticated = useAppSelector(state => state.auth.isAuthenticated);
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/login" />;
   }
 
-  return element;
+  return <Outlet />;
 };
-
 

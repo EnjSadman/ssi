@@ -8,16 +8,16 @@ import AuthCheck from './lib/Auth/AuthCheck';
 function App() {
   return (
     <>
-      <Header />
-      
-        <Routes>
-          <Route path='/' element={<div />}/>
-          <Route path='/list' element={<div />}/>
-          <Route path='/login' element={<LoginPage />}/>
-          <Route path='/add' element={<AuthCheck element={<div />} />}/>
-          <Route path='/edit' element={<AuthCheck element={<div />} />}/>
-        </Routes>
-
+      <Header />    
+      <Routes>
+        <Route path='/' element={<div />}/>
+        <Route path='/list' element={<div />}/>
+        <Route path='/login' element={<LoginPage />}/>
+        <Route element={<AuthCheck />}>
+          <Route path='/add' element={<div />}/>
+          <Route path='/edit/:id' element={<div />}/>
+        </Route>
+      </Routes>
     </>
   );
 }

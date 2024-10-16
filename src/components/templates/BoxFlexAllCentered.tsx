@@ -4,7 +4,7 @@ interface BoxProps {
   children: React.ReactNode;
 };
 
-export default function BoxFlexAllCentered(props : BoxProps) {
+const BoxFlexAllCentered = (props : BoxProps) => {
   return (
     <Box
       display={"flex"}
@@ -15,3 +15,5 @@ export default function BoxFlexAllCentered(props : BoxProps) {
     </Box>
   )
 }
+
+export default BoxFlexAllCentered;

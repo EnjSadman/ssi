@@ -1,6 +1,6 @@
 import { Container, Typography } from "@mui/material";
 
-export default function HomePage() {
+const HomePage = () => {
   return (
     <Container>
       <Typography
@@ -16,3 +16,5 @@ export default function HomePage() {
     </Container>
   )
 }
+
+export default HomePage;

@@ -12,16 +12,6 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [passwordValid, setPasswordValid] = useState(true);
 
-  function handleKey(event : KeyboardEvent) {
-    if (event.key === "Enter") {
-        validateFields();
-      }
-  }
-
-  function handleLogin() {
-    dispatch(login())
-  }
-
   function validateFields() {
   
     const isUsernameValid = username.length >= 3;
@@ -34,6 +24,16 @@ export default function LoginForm() {
       handleLogin();
       navigate("/");
     }
+  }
+
+  function handleKey(event : KeyboardEvent) {
+    if (event.key === "Enter") {
+      validateFields();
+    }
+  }
+
+  function handleLogin() {
+    dispatch(login(username))
   }
 
   useEffect(() =>{

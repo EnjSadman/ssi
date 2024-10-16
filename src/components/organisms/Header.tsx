@@ -1,4 +1,4 @@
-import { Box, Button, Container } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import BoxFlexAllCentered from "../templates/BoxFlexAllCentered";
 import NavLinkHeader from "../atoms/NavLinkHeader";
@@ -12,7 +12,7 @@ const HeaderContainerStyle = {
 }
 
 export default function Header() {
-  const { isAuthenticated } = useSelector((state : RootState) => state.auth);
+  const { isAuthenticated, username } = useSelector((state : RootState) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
@@ -25,25 +25,27 @@ export default function Header() {
             component="nav"
             display={"flex"}
             gap={"16px"}
-
           >
             <NavLinkHeader text={"public"} to={"/"} />
             <NavLinkHeader text={"add"} to={"/add"} />
             <NavLinkHeader text={"list"} to={"/list"} />
           </Box>
-          <Button
-          variant="contained"
-          onClick={() => {
-            if(isAuthenticated) {
-              dispatch(logout())
-              navigate("/");
-            } else {
-              navigate("/login")
-            }
-          }}
-          >
-            {(isAuthenticated) ? "Logout" : "Login"}
-          </Button>
+          <BoxFlexAllCentered>
+            {(isAuthenticated && <Typography color="white" variant="body1">Hello, {username}</Typography>)}
+            <Button
+            variant="contained"
+            onClick={() => {
+              if(isAuthenticated) {
+                dispatch(logout())
+                navigate("/");
+              } else {
+                navigate("/login")
+              }
+            }}
+            >
+              {(isAuthenticated) ? "Logout" : "Login"}
+            </Button>
+          </BoxFlexAllCentered>
         </BoxFlexAllCentered>
       </Container>
     </Box>
